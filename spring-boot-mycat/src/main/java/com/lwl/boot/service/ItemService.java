@@ -6,7 +6,7 @@ import com.lwl.boot.model.Item;
 
 public interface ItemService {
 	
-	public void add(Item i);
+	void add(Item i);
 	
 	List<Item> find();
 	

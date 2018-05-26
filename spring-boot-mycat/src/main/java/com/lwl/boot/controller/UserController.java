@@ -12,12 +12,13 @@ import com.lwl.boot.model.Users;
 import com.lwl.boot.service.UsersService;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
 	@Resource
 	private UsersService usersService;
 	
-	@RequestMapping("/user/add")
+	@RequestMapping("/add")
 	public String add(String name) {
 		Users u = new Users();
 		u.setName(name).setIndate(new Date());
@@ -25,7 +26,7 @@ public class UserController {
 		return "插入成功";
 	}
 	
-	@RequestMapping("/user/find")
+	@RequestMapping("/find")
 	public List<Users> find() {
 		return usersService.find();
 	}

@@ -20,9 +20,9 @@ public class ItemController {
 	private ItemService itemService;
 	
 	@RequestMapping("/add")
-	public String add(Long id,String value) {
+	public String add(String value) {
 		Item i = new Item();
-		i.setId(id).setValue(value).setIndate(new Date());
+		i.setValue(Integer.valueOf(value)).setIndate(new Date());
 		itemService.add(i);
 		return "添加成功";
 	}
@@ -31,9 +31,8 @@ public class ItemController {
 	
 	@RequestMapping("/find")
 	public List<Item> find() {
+		//默认分页参数是100
 		return itemService.find();
 	}
-	
-	
-	
+
 }

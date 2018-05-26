@@ -2,18 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lwl.boot.mapper.ItemMapper">
 
-	<insert id="add" useGeneratedKeys="true" keyProperty="id">
-			insert into item (id,value,indate)
-				values(
-				#{id},
-					#{value},
-					now()
-				)
+	<insert id="add" >
+		insert into item (value, indate)
+		values (#{value}, #{indate})
 	</insert>
 	
 	<select id="find" resultType="com.lwl.boot.model.Item">
-		select * from item
+		select * from item order by id
 	</select>
-	
 
 </mapper>
